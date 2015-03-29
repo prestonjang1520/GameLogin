@@ -1,0 +1,82 @@
+﻿@model GameLogin.Models.GameLogin.Event
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Event</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EventName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EventName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EventDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EventDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NoticesTemp)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NoticesTemp)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NoticesPermanentTop)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NoticesPermanentTop)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NoticesPermanentBot)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NoticesPermanentBot)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NoticesEndOfSeason)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NoticesEndOfSeason)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Roster.RosterName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Roster.RosterName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RosterName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RosterName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.League.TeamLogo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.League.TeamLogo)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

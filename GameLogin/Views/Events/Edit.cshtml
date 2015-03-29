@@ -1,0 +1,102 @@
+﻿@model GameLogin.Models.GameLogin.Event
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Event</legend>
+
+        @Html.HiddenFor(model => model.EventId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EventName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EventName)
+            @Html.ValidationMessageFor(model => model.EventName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EventDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EventDate)
+            @Html.ValidationMessageFor(model => model.EventDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NoticesTemp)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NoticesTemp)
+            @Html.ValidationMessageFor(model => model.NoticesTemp)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NoticesPermanentTop)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NoticesPermanentTop)
+            @Html.ValidationMessageFor(model => model.NoticesPermanentTop)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NoticesPermanentBot)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NoticesPermanentBot)
+            @Html.ValidationMessageFor(model => model.NoticesPermanentBot)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NoticesEndOfSeason)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NoticesEndOfSeason)
+            @Html.ValidationMessageFor(model => model.NoticesEndOfSeason)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RosterId, "Roster")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("RosterId", String.Empty)
+            @Html.ValidationMessageFor(model => model.RosterId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RosterName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RosterName)
+            @Html.ValidationMessageFor(model => model.RosterName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LeagueName, "League")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("LeagueName", String.Empty)
+            @Html.ValidationMessageFor(model => model.LeagueName)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Reset";
+}
+
+<div style="width:100%; background-color:#1e1e1e;">
+    <div>
+        <table style="margin-left:auto; margin-right:auto">
+            <tr>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("ADMIN", "Home", "Admins", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("SYSTEM", "System", "Admins", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("EDIT PLAYER", "Index", "Players", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("ADD PLAYER", "Create", "Players", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("NOTICES", "Notices", "Admins", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("ROSTER", "Roster", "Admins", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("AUTOEMAIL", "AutoEmail", "Admins", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("SCHEDULE", "Index", "Events", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("RESET", "Reset", "Admins", null, new { style = "color:white" })</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<h1 style="color:green; text-align:center">BCIT Project Admin</h1>
+<h1 style="text-align:center">Clear the Login List</h1>
+<p style="text-align:center; margin-top:50px">This will clear the Login list for this game and will NOT reset the Game Date</p>
+<div style="margin-left:auto; margin-right:auto; width:500px; text-align:center; padding-top:30px; padding-bottom:30px; background-color:#F21D00">
+    This CANNOT be undone
+    <button type="button">MANUALLY RESET NOW</button>
+</div>
+<div style="margin-top:50px; text-align:center;">
+    <table border="1" style="margin:10px; border-width:4px; border-color:blue; display:inline-block">
+        <tr>
+            <td style="padding:20px"><button type="button" style="border-width:1px; border-color:blue; padding-bottom:20px">GAME STATUS</button></td>
+        </tr>
+    </table>
+    <table border="1" style="margin:10px; border-width:4px; border-color:green; display:inline-block">
+        <tr>
+            <td style="padding:20px"><button type="button" style="border-width:1px; border-color:green; padding-bottom:20px">ADMIN Main</button></td>
+        </tr>
+    </table>
+</div>

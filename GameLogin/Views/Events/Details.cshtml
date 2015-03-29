@@ -1,0 +1,78 @@
+﻿@model GameLogin.Models.GameLogin.Event
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Event</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EventName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EventName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EventDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EventDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NoticesTemp)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NoticesTemp)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NoticesPermanentTop)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NoticesPermanentTop)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NoticesPermanentBot)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NoticesPermanentBot)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NoticesEndOfSeason)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NoticesEndOfSeason)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Roster.RosterName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Roster.RosterName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RosterName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RosterName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.League.TeamLogo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.League.TeamLogo)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.EventId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

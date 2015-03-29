@@ -1,0 +1,96 @@
+﻿@model GameLogin.Models.Player
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Player</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PhonePrimary)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PhonePrimary)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PhoneSecondary)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PhoneSecondary)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PhoneTertiary)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PhoneTertiary)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Comments)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Comments)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HomeTeam)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HomeTeam)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Regular)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Regular)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AutoLogin)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AutoLogin)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LastGame)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastGame)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Active)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Active)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

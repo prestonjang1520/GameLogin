@@ -1,0 +1,55 @@
+﻿@model IEnumerable<GameLogin.Models.GameLogin.League>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LeagueName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeamLogo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaxPlayers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlayerCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdminName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LeagueName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeamLogo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaxPlayers)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlayerCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdminName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.LeagueName }) |
+            @Html.ActionLink("Details", "Details", new { id=item.LeagueName }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.LeagueName })
+        </td>
+    </tr>
+}
+
+</table>

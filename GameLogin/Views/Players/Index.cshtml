@@ -1,0 +1,109 @@
+﻿@model IEnumerable<GameLogin.Models.Player>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div style="width:100%; background-color:#1e1e1e;">
+    <div>
+        <table style="margin-left:auto; margin-right:auto">
+            <tr>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("ADMIN", "Home", "Admins", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("SYSTEM", "System", "Admins", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("EDIT PLAYER", "Index", "Players", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("ADD PLAYER", "Create", "Players", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("NOTICES", "Notices", "Admins", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("ROSTER", "Roster", "Admins", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("AUTOEMAIL", "AutoEmail", "Admins", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("SCHEDULE", "Index", "Events", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("RESET", "Reset", "Admins", null, new { style = "color:white" })</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhonePrimary)
+        </th>
+        <!--<th>
+            @Html.DisplayNameFor(model => model.PhoneSecondary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneTertiary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comments)
+        </th>-->
+        <th>
+            @Html.DisplayNameFor(model => model.HomeTeam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Regular)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AutoLogin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastGame)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhonePrimary)
+        </td>
+        <!--<td>
+            @Html.DisplayFor(modelItem => item.PhoneSecondary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneTertiary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comments)
+        </td>-->
+        <td>
+            @Html.DisplayFor(modelItem => item.HomeTeam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Regular)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AutoLogin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastGame)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Active)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

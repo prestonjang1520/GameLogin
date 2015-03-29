@@ -1,0 +1,110 @@
+﻿@{
+    ViewBag.Title = "Roster";
+}
+
+<div style="width:100%; background-color:#1e1e1e;">
+    <div>
+        <table style="margin-left:auto; margin-right:auto">
+            <tr>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("ADMIN", "Home", "Admins", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("SYSTEM", "System", "Admins", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("EDIT PLAYER", "Index", "Players", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("ADD PLAYER", "Create", "Players", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("NOTICES", "Notices", "Admins", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("ROSTER", "Roster", "Admins", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("AUTOEMAIL", "AutoEmail", "Admins", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("SCHEDULE", "Index", "Events", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("RESET", "Reset", "Admins", null, new { style = "color:white" })</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<section class="system_roster_header" style="text-align:center">
+    <div class="system_roster_content_wrapper">
+        <hgroup class="title">
+            <h1 style="color:#000000"><b><%: Title %></b></h1>
+            <h2 style="color:#000000"><b>System Roster Configuration</b></h2>
+        </hgroup>
+        <div style="margin:0 auto; text-align:center;">
+            <div>
+                <asp:Button id="system_roster_btn_edit_player" runat="server" Text="Remove/Replace Player from Playing List" style="margin:10px 0px" />
+            </div>
+            <div>
+                <asp:Button id="system_roster_btn_view_history" runat="server" Text="View History of Game Rosters" style="margin:10px 0px" />
+            </div>
+            <div>
+                <asp:Button id="system_roster_btn_setup_line" runat="server" Text="Setup Lines and Print" style="margin:10px 0px" />
+            </div>
+        </div>
+        <br />
+        <br />
+    </div>
+</section>
+
+<div id="system_roster_wrapper" style="width:900px;margin:0 auto;">
+    <div id="system_roster_left_column" style="width:300px;align-text:center; float:left;">
+        <h3>Spares can Login:</h3>
+        <br />
+        <asp:DropDownList id="system_roster_dd_spare" runat="server">
+            <asp:listitem>Never</asp:listitem>
+            <asp:listitem>On Game Day</asp:listitem>
+            <asp:listitem>1 Day prior</asp:listitem>
+            <asp:listitem>2 Days prior</asp:listitem>
+            <asp:listitem>3 Days prior</asp:listitem>
+            <asp:listitem>Always</asp:listitem>
+        </asp:DropDownList>
+        <br />
+        <asp:Button id="system_roster_btn_spare_update" Text="Enter" runat="server" style="margin:10px 0px" />
+        <br />
+        <p>Spares names are not displayed on the main page until the system allows them to login.</p>
+    </div>
+    <div id="system_roster_center_column" style="width:300px;align-text:center;float:left;">
+        <h3>Newcomers can Login:</h3>
+        <br />
+        <asp:RadioButtonList id="system_roster_radio_newcomers" runat="server">
+            <asp:listitem>Never</asp:listitem>
+            <asp:listitem>Themselves</asp:listitem>
+        </asp:RadioButtonList>
+        <br />
+        <asp:Button id="system_roster_btn_newcomers_update" Text="Update" runat="server" style="margin:10px 0px" />
+        <br />
+        <p>
+            This function allows your players to login new players(not on your roster) for
+            the next game without involving you but you must edit their profile to add the
+            email address.
+        </p>
+    </div>
+    <div id="system_roster_right_column" style="width:300px;align-text:center;float:left;">
+        <h3>Maximum Players:</h3>
+        <br />
+        <p>
+            Your system will not allow others to login once the Maximum number of players
+            has been reached.  The list of those NOT PLAYING will not be displayed at
+            this time.
+        </p>
+        <asp:DropDownList id="system_roster_dd_max_players" runat="server">
+        </asp:DropDownList>
+        <br />
+        <asp:Button id="system_roster_btn_max_players_update" Text="Update" runat="server" style="margin:10px 0px" />
+        <br />
+        <p>
+            Change the setting to "0" if you wish to NOT use the player login functionality,
+            but still display the Game Date/Time and Announcements.
+        </p>
+    </div>
+</div>
+<br />
+<br />
+<div style="clear:both; text-align:center" />
+<h2><a style="text-align:center;" href="temp@gmail.com">HELP</a></h2>
+<br />
+<br />
+<div id="system_roster_footer" style="width:500px;margin:0 auto;">
+    <div style="width:250px;float:left;">
+        <asp:Button id="system_roster_btn_status" runat="server" Text="GAME STATUS" />
+    </div>
+    <div style="width:250px;float:right;">
+        <asp:Button id="system_roster_btn_main" runat="server" Text="ADMIN Main" />
+    </div>
+</div>

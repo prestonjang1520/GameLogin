@@ -1,0 +1,102 @@
+﻿@{
+    ViewBag.Title = "GameDay";
+}
+
+<div style="width:100%; background-color:#1e1e1e;">
+    <div>
+        <table style="margin-left:auto; margin-right:auto">
+            <tr>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("ADMIN", "Home", "Admins")</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("SYSTEM", "System", "Admins")</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("EDIT PLAYER", "Index", "Players")</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("ADD PLAYER", "Create", "Players")</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("NOTICES", "Notices", "Admins")</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("ROSTER", "Roster", "Admins")</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">AUTO-EMAIL</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("GAME DAY", "GameDay", "Admins")</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("RESET", "Reset", "Admins")</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<p style="text-align: center; font-weight: bold; font-size: large;">Add a New Game to your Schedule</p>
+<br />
+<p style="text-align: center; font-style: italic;">If you do NOT wish to enter the Location and Opponent, leave N/A as the entry.</p>
+<br />
+<asp:Table ID="NewGame_Table" runat="server" BorderStyle="Double" HorizontalAlign="Center" CellPadding="20" CellSpacing="20">
+    <asp:tablerow>
+        <asp:tablecell font-bold="True">Date:</asp:tablecell>
+        <asp:tablecell font-bold="True">
+            Day: <asp:DropDownList ID="NewGame_Day" runat="server"></asp:DropDownList>
+            Month: <asp:DropDownList ID="NewGame_Month" runat="server"></asp:DropDownList>
+            Year: <asp:DropDownList ID="NewGame_Year" runat="server"></asp:DropDownList>
+        </asp:tablecell>
+    </asp:tablerow>
+    <asp:tablerow>
+        <asp:tablecell font-bold="True">
+            Time:
+        </asp:tablecell>
+        <asp:tablecell>
+            <asp:DropDownList ID="NewGame_DropDownList" runat="server"></asp:DropDownList>
+        </asp:tablecell>
+    </asp:tablerow>
+    <asp:tablerow>
+        <asp:tablecell font-bold="True">
+            Location:
+        </asp:tablecell>
+        <asp:tablecell>
+            <asp:textbox runat="server">N/A</asp:textbox>
+        </asp:tablecell>
+    </asp:tablerow>
+    <asp:tablerow>
+        <asp:tablecell font-bold="True">
+            Opponent:
+        </asp:tablecell>
+        <asp:tablecell>
+            <asp:textbox runat="server">N/A</asp:textbox>
+        </asp:tablecell>
+    </asp:tablerow>
+    <asp:tablerow>
+        <asp:tablecell></asp:tablecell>
+        <asp:tablecell>
+            <asp:button runat="server" text="Add" />
+        </asp:tablecell>
+    </asp:tablerow>
+</asp:Table>
+<br />
+<br />
+<br />
+<asp:table runat="server" horizontalalign="Center" backcolor="white" borderstyle="Solid">
+    <asp:tableheaderrow>
+        <asp:tableheadercell font-bold="True" font-size="Large" horizontalalign="Center">HELP</asp:tableheadercell>
+    </asp:tableheaderrow>
+</asp:table>
+<br />
+<asp:table runat="server" horizontalalign="Center">
+    <asp:tablerow>
+        <asp:tablecell>
+            <asp:table runat="server" horizontalalign="Center" bordercolor="#0000CC" cellpadding="0" cellspacing="20" borderstyle="Solid">
+                <asp:tablerow>
+                    <asp:tablecell>
+                        <asp:Button ID="NewGame_GameStatus" runat="server" Text="Game Status" />
+                    </asp:tablecell>
+                </asp:tablerow>
+            </asp:table>
+        </asp:tablecell>
+        <asp:tablecell>
+            <asp:table runat="server" horizontalalign="Center" bordercolor="#006600" borderstyle="Solid" cellpadding="0" cellspacing="20">
+                <asp:tablerow>
+                    <asp:tablecell>
+                        <asp:Button ID="NewGame_AdminMain" runat="server" Text="Admin Main" />
+                    </asp:tablecell>
+                </asp:tablerow>
+            </asp:table>
+        </asp:tablecell>
+    </asp:tablerow>
+</asp:table>
+<asp:table runat="server" horizontalalign="Center">
+    <asp:tablerow>
+    </asp:tablerow>
+</asp:table>
+

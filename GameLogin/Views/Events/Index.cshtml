@@ -1,0 +1,134 @@
+﻿@model IEnumerable<GameLogin.Models.GameLogin.Event>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<div style="width:100%; background-color:#1e1e1e;">
+    <div>
+        <table style="margin-left:auto; margin-right:auto">
+            <tr>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("ADMIN", "Home", "Admins", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("SYSTEM", "System", "Admins", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("EDIT PLAYER", "Index", "Players", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("ADD PLAYER", "Create", "Players", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("NOTICES", "Notices", "Admins", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("ROSTER", "Roster", "Admins", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("AUTOEMAIL", "AutoEmail", "Admins", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("SCHEDULE", "Index", "Events", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("RESET", "Reset", "Admins", null, new { style = "color:white" })</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<div style="text-align:center">
+    <asp:Label ID="lblHeader" Text="BCIT Project - Admin" style="font-size:24px; font-weight:bold" ForeColor="#009900"></asp:Label>
+    <br />
+    <br />
+    <p style="text-align:left">The current Game Day is highlighted in blue. To change the current Game Day, edit the date you wish to make the current Game Day. You may also add your Opponent and game location, if you have no already done so.</p>
+    <br />
+    <h3>SCHEDULE:</h3>
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EventName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoticesTemp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoticesPermanentTop)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoticesPermanentBot)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoticesEndOfSeason)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Roster.RosterName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RosterName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.League.TeamLogo)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoticesTemp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoticesPermanentTop)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoticesPermanentBot)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoticesEndOfSeason)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Roster.RosterName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RosterName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.League.TeamLogo)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.EventId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.EventId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.EventId })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <p>
+        @Html.ActionLink("Add A New Game", "Create")
+    </p>
+    <br />
+    <br />
+    <br />
+    <p style="text-align:left">You are currently using the Season schedule format to auto set your next Game Day. If you would like the Game Day functin to set your next Game Day a certain number of days in the future and not refer to a set schedule, then click the "DELETE THE SCHEDULE" button below. Be warned that this will PERMANENTLY delete your entire schedule from the system.</p>
+    <br />
+    <br />
+    <br />
+    <div style="width:350px; margin-left:auto; margin-right:auto;">
+        <asp:hyperlink id="HyperLink1" style="font-weight:bolder; text-decoration:underline; font-size:larger; color:blue">Help</asp:hyperlink>
+    </div>
+    <br />
+    <br />
+    <div style="margin-top:50px; text-align:center;">
+        <table border="1" style="margin:10px; border-width:4px; border-color:blue; display:inline-block">
+            <tr>
+                <td style="padding:20px"><button type="button" style="border-width:1px; border-color:blue; padding-bottom:20px">GAME STATUS</button></td>
+            </tr>
+        </table>
+        <table border="1" style="margin:10px; border-width:4px; border-color:green; display:inline-block">
+            <tr>
+                <td style="padding:20px"><button type="button" style="border-width:1px; border-color:green; padding-bottom:20px">ADMIN Main</button></td>
+            </tr>
+        </table>
+    </div>
+</div>

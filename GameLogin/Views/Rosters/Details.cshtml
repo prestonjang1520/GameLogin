@@ -1,0 +1,22 @@
+﻿@model GameLogin.Models.GameLogin.Roster
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Roster</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RosterName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RosterName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.RosterId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,8 @@
+﻿Enable-Migrations -ContextTypeName GameLogin.Models.Context.LeagueContext
+
+add-migration -ConfigurationTypeName GameLogin.Migrations.Configuration "InitialMigration"
+
+update-database -ConfigurationTypeName GameLogin.Migrations.Configuration -verbose
+
+can run Add-Migration initial again to rescaffold (make additional changes
+ to your model that you want to include in this migration)

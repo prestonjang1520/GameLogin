@@ -1,0 +1,36 @@
+﻿@model GameLogin.Models.GameLogin.League
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>League</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TeamLogo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TeamLogo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MaxPlayers)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MaxPlayers)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PlayerCount)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PlayerCount)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.LeagueName }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

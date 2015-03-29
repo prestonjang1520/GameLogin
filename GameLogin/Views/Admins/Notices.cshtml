@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "Notices";
+}
+
+<div style="width:100%; background-color:#1e1e1e;">
+    <div>
+        <table style="margin-left:auto; margin-right:auto">
+            <tr>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("ADMIN", "Home", "Admins", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("SYSTEM", "System", "Admins", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("EDIT PLAYER", "Index", "Players", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("ADD PLAYER", "Create", "Players", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("NOTICES", "Notices", "Admins", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("ROSTER", "Roster", "Admins", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("AUTOEMAIL", "AutoEmail", "Admins", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("SCHEDULE", "Index", "Events", null, new { style = "color:white" })</a></td>
+                <td style="padding:23px; width:130px; cursor: pointer;" onmouseout="this.style.background='#1e1e1e'" onmouseover="this.style.background='#494949'"><a style="text-decoration:none">@Html.ActionLink("RESET", "Reset", "Admins", null, new { style = "color:white" })</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<section class="notice_header" style="text-align:center">
+    <div class="notice_content_wrapper">
+        <hgroup class="title">
+            <h1 style="color:#000000"><b><%: Title %></b></h1>
+            <h2 style="color:#000000"><b>Notices</b></h2>
+        </hgroup>
+        <div id="notice_note" style="margin:0px 0px; text-align:center;">
+            <p style="color:red;">Enter none to remove a specific Notice from your system</p>
+        </div>
+        <br />
+        <br />
+    </div>
+</section>
+
+<div id="notice_wrapper" style="width:750px; margin:0px auto; clear:both;text-align:center;">
+    <div id="notice_temp_notice" style="margin: 5px 0px; padding: 10px 0px; background-color:#d3d3d3;">
+        <p><h3><b>Temporary</b> (removed when roster fills up or is reset)</h3></p>
+        <asp:TextBox ID="notice_text_box_temp" TextMode="MultiLine" runat="server" style="height:300px;width:600px;"></asp:TextBox>
+        <br />
+        <asp:Button ID="notice_btn_temp" runat="server" Text="UPDATE" style="margin:10px 0px 0px 0px" />
+    </div>
+    <div id="notice_perm_top_notice" style="margin: 5px 0px; padding: 10px 0px; background-color:#d3d3d3;" ">
+        <p><h3><b>Permanent top</b> (removed when roster reset)</h3></p>
+        <asp:TextBox ID="notice_text_box_perm_top" TextMode="MultiLine" runat="server" style="height:300px;width:600px;"></asp:TextBox>
+        <br />
+        <asp:Button ID="notice_btn_perm_top" runat="server" Text="UPDATE" style="margin:10px 0px 0px 0px" />
+    </div>
+    <div id="notice_perm_bot_notice" style="margin: 5px 0px; padding: 10px 0px; background-color:#d3d3d3;" ">
+        <p><h3><b>Permanent bottom</b> (removed when roster reset)</h3></p>
+        <asp:TextBox ID="notice_text_box_perm_bot" TextMode="MultiLine" runat="server" style="height:300px;width:600px;"></asp:TextBox>
+        <br />
+        <asp:Button ID="notice_btn_perm_bot" runat="server" Text="UPDATE" style="margin:10px 0px 0px 0px" />
+    </div>
+    <div id="notice_end_season_notice" style="margin: 5px 0px; padding: 10px 0px; background-color:#d3d3d3;" ">
+        <p><h3><b>End of Season</b> (Players cannot login once this has been selected)</h3></p>
+        <asp:TextBox ID="notice_text_box_end" TextMode="MultiLine" runat="server" style="height:300px;width:600px;"></asp:TextBox>
+        <br />
+        <asp:Button ID="notice_btn_end" runat="server" Text="UPDATE" style="margin:10px 0px 0px 0px" />
+    </div>
+</div>
+<br />
+<br />
+<div style="clear:both; text-align:center" />
+<h2><a style="text-align:center;" href="temp@gmail.com">HELP</a></h2>
+<br />
+<br />
+<div id="notice_footer" style="width:500px;margin:0 auto;">
+    <div style="width:250px;float:left;">
+        <asp:Button ID="notice_btn_notice" runat="server" Text="GAME STATUS" />
+    </div>
+    <div style="width:250px;float:right;">
+        <asp:Button ID="notice_btn_main" runat="server" Text="ADMIN Main" />
+    </div>
+</div>

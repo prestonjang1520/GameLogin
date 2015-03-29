@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<div style="text-align:center">
+    <img src="~/images/soccer2.jpg" />
+    <img src="~/images/skates.jpg" />
+    <span style="font-size:50px">Game Login</span>
+    <img src="~/images/poker.jpg" />
+    <img src="~/images/baseball3.jpg" />
+</div>
+
+<div>
+    <p style="margin-left: 40px; margin-right:40px; font-weight: bold">
+        Keep track of how many players have signed up for your next game. Don't be caught short or with too many players crowding your bench! Stop wasting countless hours phoning and emailing each other before each and every game. This site is perfect for hockey, baseball, basketball, soccer, poker, ultimate and many more sports teams or groups. Try it out for FREE for 6 weeks, you won't be disappointed!
+    </p>
+</div>
+
+<div style="text-align:center">
+    <span style="font-weight:bold">Code:</span>
+    @using (Html.BeginForm("Index", "HomeLogin"))
+    {
+        @Html.TextBox("pass"); 
+        <input type="submit" value="Go"/>
+       // <a class="btn btn-default">@Html.ActionLink("Go", "Validate", "HomeLogin")</a>
+    }
+</div>
+
+<div style="text-align:center; margin-top:60px">
+    <img src="~/images/10commandments.jpg" />
+</div>
+
+<div style="text-align:center; margin-top:40px">
+    <p style="color:red; font-size:20px">
+        Now offering a FREE 4 week trial period
+    </p>
+    <a>Request your free Trial code</a>
+    <p>
+        $25 for an entire year
+    </p>
+</div>

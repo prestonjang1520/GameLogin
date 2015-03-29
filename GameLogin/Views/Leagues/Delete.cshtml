@@ -1,0 +1,47 @@
+﻿@model GameLogin.Models.GameLogin.League
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>League</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.LeagueName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LeagueName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TeamLogo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TeamLogo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MaxPlayers)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MaxPlayers)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PlayerCount)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PlayerCount)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

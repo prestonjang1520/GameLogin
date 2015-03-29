@@ -1,0 +1,138 @@
+﻿@model Tuple<List<GameLogin.Models.Player>, List<GameLogin.Models.GameLogin.Event>>
+
+@{
+    ViewBag.Title = "Index";
+    DateTime currDate = DateTime.Now;
+    DateTime gameDate = Model.Item2[0].EventDate;
+    foreach (GameLogin.Models.GameLogin.Event d in Model.Item2) {
+        if (gameDate > d.EventDate){
+            gameDate = d.EventDate; 
+        }
+    }
+    Boolean activeLogin = false; 
+    foreach (GameLogin.Models.Player p in Model.Item1) {
+        if (p.Active) {
+            activeLogin = true;
+            break;
+        }
+    }
+}
+
+<body bgcolor="white" style="font-family: arial, sans-serif">
+    <center>
+        <h1> BCIT PROJECT</h1>
+        <font face="arial">Roster as of: </font>@currDate.ToString("dddd dd/MM/yyyy h:m K")<br />
+        <p>
+            NextGame:<br />
+            @gameDate.ToString("dddd dd MMMM")<br />
+            @gameDate.ToString("h:mm tt")<br />
+        </p>
+
+        <div>
+            <input type="button" value="Reload this page" onclick="history.go(0)" />
+        </div>
+        <div>
+            @if (@activeLogin)
+            {
+                <table border="1">
+                    <tr>
+                        <td width="15px">Home</td>
+                        <td width="15px">Away</td>
+                        <!--<td>@Html.DisplayNameFor(name => Model.Item1[0].Name)</td>-->
+                        <!--<td>@Html.DisplayNameFor(team => Model.Item1[0].HomeTeam)</td>-->
+                    </tr>
+                    <tr>
+                        <td>
+                            @foreach (GameLogin.Models.Player p in Model.Item1)
+                            {
+                                if (p.HomeTeam && p.Active)
+                                {
+                                    @Html.DisplayFor(name => p.Name)
+                                    <br />
+                                }
+                            }
+                        </td>
+                        <td>
+                            @foreach (GameLogin.Models.Player p in Model.Item1)
+                            {
+                                if (!p.HomeTeam && p.Active)
+                                {
+                                    @Html.DisplayFor(name => p.Name)
+                                    <br />
+                                }
+                            }
+                        </td>
+                    </tr>
+                </table>
+            }
+            else
+            {
+                <table id="table1" border="1">
+                    <tr>
+                        <td>There are no players logged in for this game. (Database Query)</td>
+                    </tr>
+                </table>
+            }
+        </div>
+        <p>
+            If you are going to be at the next game, log yourself in by clicking on the button beside your name, <br />
+            then on the LOG IN button. If you cannot play, do NOT log in. If you have logged in for the game, <br />
+            but now need to remove your name from the Playing list, send an email to your Team Coach/Manager below.<br />
+        </p>
+        <br /> <br />
+        @using (Html.BeginForm("Index", "Home"))
+        {
+            @Html.ValidationSummary()
+            <table border="1">
+                <tr>
+                    <td>Home</td>
+                    <td>Away</td>
+                    <!--<td>@Html.DisplayNameFor(name => Model.Item1[0].Name)</td>-->
+                    <!--<td>@Html.DisplayNameFor(team => Model.Item1[0].HomeTeam)</td>-->
+                </tr>
+                <tr>
+                    <td>
+                        @foreach (GameLogin.Models.Player p in Model.Item1)
+                        {
+                            if (p.HomeTeam && !p.Active)
+                            {
+                                @Html.RadioButton("Login", @Html.DisplayFor(name => p.Name)) <span>@Html.DisplayFor(name => p.Name)</span>
+                                <br />
+                            }
+                        }
+                    </td>
+                    <td>
+                        @foreach (GameLogin.Models.Player p in Model.Item1) {
+                            if (!p.HomeTeam && !p.Active) 
+                            {
+                               @Html.RadioButton("Login", @Html.DisplayFor(name => p.Name)) <span>@Html.DisplayFor(name => p.Name)</span>
+                                <br />
+                            }
+                        }
+                    </td>
+                </tr>
+            </table>
+            <div>
+                <input type="submit" value="Login"/>
+            </div>
+        } 
+        <br />
+
+        Send an email to all those who are:<br />
+        PLAYING    or     NOT playing<br />
+        EVERYONE     <br />
+
+        Send an email to your manager/coach<br />
+        
+    </center>
+
+    <div style="margin-top:2000px">
+        @using (Html.BeginForm("Home", "Admins"))
+        {
+            @Html.TextBox("adminpass");
+            <input type="submit" value="Admin" />
+        }
+    </div>
+
+
+</body>
