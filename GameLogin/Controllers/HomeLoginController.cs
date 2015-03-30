@@ -12,11 +12,17 @@ namespace GameLogin.Controllers
     {
 
         private LeagueContext db = new LeagueContext();
+
         //
         // GET: /HomeLogin/
         static String loginPass = "";
         public ActionResult Index(string pass)
         {
+            //This gets the emails of all the players in a string format
+            //and puts it into the ViewBag
+            ViewBag.AllEmails = getAllEmails();
+            ViewBag.AllActiveEmails = getAllActiveEmails();
+
             if (pass != null)
             {
                 loginPass = pass;
@@ -48,5 +54,32 @@ namespace GameLogin.Controllers
             db.SaveChanges();
             return View();
         }*/
+
+        private string getAllEmails()
+        {
+            string mailingList = "mailto:";
+            List<Player> players = db.Players.ToList();
+            foreach (Player p in players)
+            {
+                mailingList += p.Email + "; ";
+            }
+            return mailingList;
+        }
+
+        //used to get all the active emails of all the players
+        private string getAllActiveEmails()
+        {
+            string mailingList = "mailto:";
+            List<Player> players = db.Players.ToList();
+            foreach (Player p in players)
+            {
+                if (p.Active == true)
+                {
+                    mailingList += p.Email + "; ";
+                }
+                
+            }
+            return mailingList;
+        }
     }
 }

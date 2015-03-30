@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
+    string allEmails = ViewBag.AllEmails;
     DateTime currDate = DateTime.Now;
     DateTime gameDate = Model.Item2[0].EventDate;
     foreach (GameLogin.Models.GameLogin.Event d in Model.Item2) {
@@ -20,17 +21,17 @@
 
 <body bgcolor="white" style="font-family: arial, sans-serif">
     <center>
-        <h1> BCIT PROJECT</h1>
+        <h1>@Html.DisplayFor(model => Model.Item2[0].EventName)</h1>
         <font face="arial">Roster as of: </font>@currDate.ToString("dddd dd/MM/yyyy h:m K")<br />
         <p>
-            NextGame:<br />
+            Next Game:<br />
             @gameDate.ToString("dddd dd MMMM")<br />
             @gameDate.ToString("h:mm tt")<br />
         </p>
 
         <div>
             <input type="button" value="Reload this page" onclick="history.go(0)" />
-        </div>
+        </div><br/>
         <div>
             @if (@activeLogin)
             {
@@ -102,10 +103,11 @@
                         }
                     </td>
                     <td>
-                        @foreach (GameLogin.Models.Player p in Model.Item1) {
-                            if (!p.HomeTeam && !p.Active) 
+                        @foreach (GameLogin.Models.Player p in Model.Item1)
+                        {
+                            if (!p.HomeTeam && !p.Active)
                             {
-                               @Html.RadioButton("Login", @Html.DisplayFor(name => p.Name)) <span>@Html.DisplayFor(name => p.Name)</span>
+                                @Html.RadioButton("Login", @Html.DisplayFor(name => p.Name)) <span>@Html.DisplayFor(name => p.Name)</span>
                                 <br />
                             }
                         }
@@ -118,13 +120,14 @@
         } 
         <br />
 
-        Send an email to all those who are:<br />
-        PLAYING    or     NOT playing<br />
-        EVERYONE     <br />
+        <p>
+            Send an email to all those who are:<br />
+            PLAYING    or     NOT playing<br />
+            <a href="@allEmails">EVERYONE</a>     <br />
+            Send an email to your manager/coach
+        </p><br />
 
-        Send an email to your manager/coach<br />
-        
-    </center>
+</center>
 
     <div style="margin-top:2000px">
         @using (Html.BeginForm("Home", "Admins"))
