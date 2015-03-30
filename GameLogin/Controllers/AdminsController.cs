@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using GameLogin.Models.GameLogin;
 using GameLogin.Models.Context;
+using System.Net.Mail;
 
 namespace GameLogin.Controllers
 {
@@ -162,6 +163,36 @@ namespace GameLogin.Controllers
         public ActionResult AutoEmail()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult SendEmail(GameLogin.Models.MailModel _objModelMail)
+        {
+            if (ModelState.IsValid)
+            {
+                MailMessage mail = new MailMessage();
+                mail.To.Add(_objModelMail.To);
+                //mail.From = new MailAddress(_objModelMail.From);
+                mail.From = new MailAddress("gameloginbcit@gmail.com");
+                mail.Subject = _objModelMail.Subject;
+                string Body = _objModelMail.Body;
+                mail.Body = Body;
+                mail.IsBodyHtml = true;
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587; //25 is local 587 is normal
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new System.Net.NetworkCredential
+                ("gameloginbcit@gmail.com", "comp3900");// Enter senders User name and password
+                smtp.EnableSsl = true;
+                smtp.Send(mail);
+
+                return View("AutoEmail", _objModelMail);
+            }
+            else
+            {
+                return View();
+            }
         }
     }
 }

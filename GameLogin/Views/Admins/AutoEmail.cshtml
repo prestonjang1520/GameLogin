@@ -27,27 +27,174 @@
     </div>
 </div>
 
+<div style="text-align:center">
+    <h1 style="color:#005f08">Admin</h1>
+    <h1>Auto Email</h1>
+    <p>
+    System generated auto-emails can be sent to specific players at predetermined times. Maybe you want to remind your players to login 3 days before the next game, OR let your subs know that they can now login OR let those not logged in know that there are only 2 spots left before the system locks. Auto-emails are triggered when a player visits your team site and are only sent to active players. Clicking the SEND button will send that email NOW.
+    </p>
+</div>
 
 @model GameLogin.Models.MailModel
 @{
 ViewBag.Title = "AutoEmail";
 }
-<h2>Index</h2>
-<fieldset>
-<legend>
-Send Email
-</legend>
-@using (Html.BeginForm("Index","AutoEmail"))
+<fieldset style="background-color:#e8ef8c; margin-left:auto; margin-right:auto; width:600px; padding:50px;">
+<h2 style="font-weight:bold; text-align:center">
+ADD A NEW AUTO-EMAIL TO YOUR SYSTEM
+</h2>
+<br />
+<br />
+<p>
+
+<span style="color:#FF0000">*</span> When selecting the 4th Email Type below, leave all other fields blank as the system will generate the text and data for you, and only send it to the admin email
+</p>
+<br />
+
+
+@using (Html.BeginForm("SendEmail","Admins"))
 {
 @Html.ValidationSummary()
-    <p>From: </p>
-    <p>@Html.TextBoxFor(m=>m.From)</p>
-     <p>To: </p>
-    <p>@Html.TextBoxFor(m=>m.To)</p>
-    <p>Subject: </p>
-    <p>@Html.TextBoxFor(m=>m.Subject)</p>
-     <p>Body: </p>
+    <p><span style="font-weight:bold">Email Name:</span>
+    <span>@Html.TextBoxFor(m=>m.To)</span>
+    </p>
+    <br />  
+
+    <div>
+        <span style="font-weight:bold">Email Type:</span>
+        <br />
+        1. <input name="emailType" type="radio" /> Send email 
+            <select> 
+                <option value="option0">0</option>
+                <option value="option1">1</option>
+                <option value="option2">2</option>
+                <option value="option3">3</option>
+                <option value="option4">4</option>
+                <option value="option5">5</option>
+                <option value="option6">6</option>
+                <option value="option7">7</option>
+                <option value="option8">8</option>
+                <option value="option9">9</option>
+            </select> days before GameDay
+        <br />
+        2. <input name="emailType" type="radio" /> Send email when there are
+            <select> 
+                <option value="option0">0</option>
+                <option value="option1">1</option>
+                <option value="option2">2</option>
+                <option value="option3">3</option>
+                <option value="option4">4</option>
+                <option value="option5">5</option>
+                <option value="option6">6</option>
+                <option value="option7">7</option>
+                <option value="option8">8</option>
+                <option value="option9">9</option>
+                <option value="option10">10</option>
+                <option value="option11">11</option>
+                <option value="option12">12</option>
+                <option value="option13">13</option>
+                <option value="option14">14</option>
+                <option value="option15">15</option>
+                <option value="option16">16</option>
+                <option value="option17">17</option>
+                <option value="option18">18</option>
+                <option value="option19">19</option>
+                <option value="option20">20</option>
+                <option value="option21">21</option>
+                <option value="option22">22</option>
+                <option value="option23">23</option>
+                <option value="option24">24</option>
+                <option value="option25">25</option>
+                <option value="option26">26</option>
+                <option value="option27">27</option>
+                <option value="option28">28</option>
+                <option value="option29">29</option>
+                <option value="option30">30</option>
+            </select> players logged in
+        <br />
+        3. <input name="emailType" type="radio" /> Less than
+           <select> 
+                <option value="option0">0</option>
+                <option value="option1">1</option>
+                <option value="option2">2</option>
+                <option value="option3">3</option>
+                <option value="option4">4</option>
+                <option value="option5">5</option>
+                <option value="option6">6</option>
+                <option value="option7">7</option>
+                <option value="option8">8</option>
+                <option value="option9">9</option>
+                <option value="option10">10</option>
+                <option value="option11">11</option>
+                <option value="option12">12</option>
+                <option value="option13">13</option>
+                <option value="option14">14</option>
+                <option value="option15">15</option>
+                <option value="option16">16</option>
+                <option value="option17">17</option>
+                <option value="option18">18</option>
+                <option value="option19">19</option>
+                <option value="option20">20</option>
+                <option value="option21">21</option>
+                <option value="option22">22</option>
+                <option value="option23">23</option>
+                <option value="option24">24</option>
+                <option value="option25">25</option>
+                <option value="option26">26</option>
+                <option value="option27">27</option>
+                <option value="option28">28</option>
+                <option value="option29">29</option>
+                <option value="option30">30</option>
+            </select> logged in 
+            <select> 
+                <option value="option0">0</option>
+                <option value="option1">1</option>
+                <option value="option2">2</option>
+                <option value="option3">3</option>
+                <option value="option4">4</option>
+                <option value="option5">5</option>
+                <option value="option6">6</option>
+                <option value="option7">7</option>
+                <option value="option8">8</option>
+                <option value="option9">9</option>
+            </select> days before Gameday
+        <br />
+        4. <input name="emailType" type="radio" /> Send email to administrator when any player logs in for next game <span style="color:#FF0000">*</span>
+    
+
+
+    </div>
+
+
+  
+    <p><span style="font-weight:bold">Email Subject:</span> 
+    <span>@Html.TextBoxFor(m=>m.Subject)</span>
+    </p>
+    <p style="font-weight:bold">Email Text: </p>
     <p>@Html.TextAreaFor(m=>m.Body)</p>
-    <input type ="submit" value ="Send" />
+
+    <div>
+        <p style="font-weight:bold">Send the email to:</p>
+        <input name="sendEmailType" type="radio" /> players NOT logged in <br />
+        <input name="sendEmailType" type="radio" /> players logged in <br />
+        <input name="sendEmailType" type="radio" /> substitute players <br />
+        <input name="sendEmailType" type="radio" /> system administrator <br />
+        <input name="sendEmailType" type="radio" /> all active players
+    </div>
+    
+    <div>
+        <p style="font-weight:bold">Include these stats at the end of the email:</p>
+        <input name="sendEmailType" type="radio" /> number of players already logged in <br />
+        <input name="sendEmailType" type="radio" /> number of spots left on the bench <br />
+        <input name="sendEmailType" type="radio" /> both <br />
+        <input name="sendEmailType" type="radio" /> neither
+    </div>
+
+
+    <div  style="text-align:center">
+        <input type ="submit" value ="Save" />
+    </div>
+
 }  </fieldset>
+
 
