@@ -30,6 +30,14 @@
         </div>
 
         <div class="editor-label">
+            @Html.LabelFor(model => model.EventPassword)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EventPassword)
+            @Html.ValidationMessageFor(model => model.EventPassword)
+        </div>
+
+        <div class="editor-label">
             @Html.LabelFor(model => model.NoticesTemp)
         </div>
         <div class="editor-field">

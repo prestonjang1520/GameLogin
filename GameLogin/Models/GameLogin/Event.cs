@@ -15,6 +15,8 @@ namespace GameLogin.Models.GameLogin
         public string EventName { get; set; }
         [Required]
         public DateTime EventDate { get; set; }
+        [Required]
+        public string EventPassword { get; set; }
         public string NoticesTemp { get; set; }
         public string NoticesPermanentTop { get; set; }
         public string NoticesPermanentBot { get; set; }

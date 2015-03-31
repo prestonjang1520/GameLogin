@@ -180,6 +180,10 @@
     <Compile Include="Migrations\201503270139343_InitialMigration1.Designer.cs">
       <DependentUpon>201503270139343_InitialMigration1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201503310249279_SecondMigration.cs" />
+    <Compile Include="Migrations\201503310249279_SecondMigration.Designer.cs">
+      <DependentUpon>201503310249279_SecondMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Context\LeagueContext.cs" />
@@ -458,6 +462,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201503270139343_InitialMigration1.resx">
       <DependentUpon>201503270139343_InitialMigration1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503310249279_SecondMigration.resx">
+      <DependentUpon>201503310249279_SecondMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

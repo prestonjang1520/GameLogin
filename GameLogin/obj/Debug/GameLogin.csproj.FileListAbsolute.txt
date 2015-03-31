@@ -113,3 +113,4 @@ E:\GameLogin\GameLogin\obj\Debug\GameLogin.csproj.GenerateResource.Cache
 E:\GameLogin\GameLogin\obj\Debug\GameLogin.dll
 E:\GameLogin\GameLogin\obj\Debug\GameLogin.pdb
 C:\Users\Acer\Documents\Visual Studio 2013\Projects\NoFuckups\GameLogin\GameLogin\obj\Debug\GameLogin.csprojResolveAssemblyReference.cache
+C:\Users\Acer\Documents\Visual Studio 2013\Projects\NoFuckups\GameLogin\GameLogin\obj\Debug\GameLogin.Migrations.SecondMigration.resources
