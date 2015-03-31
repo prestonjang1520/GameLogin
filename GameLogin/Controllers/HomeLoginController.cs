@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using GameLogin.Models;
 using GameLogin.Models.Context;
+using GameLogin.Models.GameLogin;
 
 namespace GameLogin.Controllers
 {
@@ -12,10 +13,11 @@ namespace GameLogin.Controllers
     {
 
         private LeagueContext db = new LeagueContext();
-
-        //
-        // GET: /HomeLogin/
+        //variable to hold the password typed by the user so the user doesn't
+        //have to retype it in
         static String loginPass = "";
+
+        // GET: /HomeLogin/
         public ActionResult Index(string pass)
         {
             //This gets the emails of all the players in a string format
@@ -23,20 +25,27 @@ namespace GameLogin.Controllers
             ViewBag.AllEmails = getAllEmails();
             ViewBag.AllActiveEmails = getAllActiveEmails();
 
+            List<Player> players = db.Players.ToList();
+            List<Event> events = db.Events.ToList();
+
             if (pass != null)
             {
                 loginPass = pass;
             }
-            if (loginPass.Equals("bcit"))
+
+            foreach(Event e in events)
             {
-                return View(new
-                    Tuple<List<GameLogin.Models.Player>,
-                            List<GameLogin.Models.GameLogin.Event>
-                         >(db.Players.ToList(), db.Events.ToList()));
+                if (loginPass.Equals(e.EventPassword))
+                {
+
+                    return View(new Tuple<List<Player>, Event>(players, e));
+                }
             }
-            else
-                return RedirectToAction("Index", "Home");
-        }/*
+
+            return RedirectToAction("Index", "Home");
+        }
+        
+        /*
         public ActionResult Index(string Login)
         {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";

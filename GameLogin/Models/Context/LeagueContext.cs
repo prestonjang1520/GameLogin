@@ -23,9 +23,7 @@ namespace GameLogin.Models.Context
             modelBuilder.Entity<Player>()
                 .Property(f => f.LastGame)
                 .HasColumnType("datetime2");
-            //modelBuilder.Entity<Event>().Property(f => f.EventDate).HasColumnType("datetime2");
-
-            //modelBuilder.Entity<Event>().HasOptional(m => m.Roster).WithRequired(p => p.Event);
+            
         }
     }
 }

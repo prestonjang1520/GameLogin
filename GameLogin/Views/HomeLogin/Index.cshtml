@@ -1,15 +1,10 @@
-﻿@model Tuple<List<GameLogin.Models.Player>, List<GameLogin.Models.GameLogin.Event>>
+﻿@model Tuple<List<GameLogin.Models.Player>, GameLogin.Models.GameLogin.Event>
 
 @{
     ViewBag.Title = "Index";
     string allEmails = ViewBag.AllEmails;
     DateTime currDate = DateTime.Now;
-    DateTime gameDate = Model.Item2[0].EventDate;
-    foreach (GameLogin.Models.GameLogin.Event d in Model.Item2) {
-        if (gameDate > d.EventDate){
-            gameDate = d.EventDate; 
-        }
-    }
+    DateTime gameDate = Model.Item2.EventDate;
     Boolean activeLogin = false; 
     foreach (GameLogin.Models.Player p in Model.Item1) {
         if (p.Active) {
@@ -21,7 +16,7 @@
 
 <body bgcolor="white" style="font-family: arial, sans-serif">
     <center>
-        <h1>@Html.DisplayFor(model => Model.Item2[0].EventName)</h1>
+        <h1>@Html.DisplayFor(model => Model.Item2.EventName)</h1>
         <font face="arial">Roster as of: </font>@currDate.ToString("dddd dd/MM/yyyy h:m K")<br />
         <p>
             Next Game:<br />
