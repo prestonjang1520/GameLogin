@@ -23,13 +23,17 @@ namespace GameLogin.Migrations
                     LeagueName = "BCIT Hockey",
                     TeamLogo = "HockeyPlayer",
                     MaxPlayers = 10,
-                    PlayerCount = 0
+                    PlayerCount = 0,
+                    AdminName = "John",
+                    Email = "j@j.j"
                 },
                 new League{
                     LeagueName = "BCIT Soccer",
                     TeamLogo = "SoccerPlayer",
                     MaxPlayers = 20,
-                    PlayerCount = 0
+                    PlayerCount = 0,
+                    AdminName = "Alice",
+                    Email = "a@a.a"
                 }
             };
 

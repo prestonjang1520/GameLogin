@@ -3,6 +3,10 @@
 @{
     ViewBag.Title = "Index";
     string allEmails = ViewBag.AllEmails;
+    string AllActiveEmails = ViewBag.AllActiveEmails;
+    string AllInactiveEmails = ViewBag.AllInactiveEmails;
+    string ManagerEmail = ViewBag.ManagerEmail;
+    
     DateTime currDate = DateTime.Now;
     DateTime gameDate = Model.Item2.EventDate;
     Boolean activeLogin = false; 
@@ -117,9 +121,9 @@
 
         <p>
             Send an email to all those who are:<br />
-            PLAYING    or     NOT playing<br />
+            <a href="@AllActiveEmails">PLAYING</a>    or     <a href="@AllInactiveEmails">NOT PLAYING</a><br />
             <a href="@allEmails">EVERYONE</a>     <br />
-            Send an email to your manager/coach
+            Send an email to your <a href="@ManagerEmail">manager/coach</a>
         </p><br />
 
 </center>

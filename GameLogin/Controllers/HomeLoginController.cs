@@ -20,11 +20,6 @@ namespace GameLogin.Controllers
         // GET: /HomeLogin/
         public ActionResult Index(string pass)
         {
-            //This gets the emails of all the players in a string format
-            //and puts it into the ViewBag
-            ViewBag.AllEmails = getAllEmails();
-            ViewBag.AllActiveEmails = getAllActiveEmails();
-
             List<Event> events = db.Events.ToList();
 
             if (pass != null)
@@ -36,8 +31,16 @@ namespace GameLogin.Controllers
             {
                 if (loginPass.Equals(e.EventPassword))
                 {
-                    List<Player> players = getPlayers(e.RosterId);
-                    return View(new Tuple<List<Player>, Event>(players, e));
+                    List<Player> eventPlayers = getPlayers(e.RosterId);
+
+                    //This gets the emails of all the players in a string format
+                    //and puts it into the ViewBag
+                    ViewBag.AllEmails = getAllEmails(eventPlayers);
+                    ViewBag.AllActiveEmails = getAllActiveEmails(eventPlayers);
+                    ViewBag.AllInactiveEmails = getAllInactiveEmails(eventPlayers);
+                    ViewBag.ManagerEmail = getManager(e.RosterId);
+
+                    return View(new Tuple<List<Player>, Event>(eventPlayers, e));
                 }
             }
 
@@ -63,10 +66,9 @@ namespace GameLogin.Controllers
             return View();
         }*/
 
-        private string getAllEmails()
+        private string getAllEmails(List<Player> players)
         {
             string mailingList = "mailto:";
-            List<Player> players = db.Players.ToList();
             foreach (Player p in players)
             {
                 mailingList += p.Email + "; ";
@@ -74,11 +76,10 @@ namespace GameLogin.Controllers
             return mailingList;
         }
 
-        //used to get all the active emails of all the players
-        private string getAllActiveEmails()
+        //gets the emails of all the active players
+        private string getAllActiveEmails(List<Player> players)
         {
             string mailingList = "mailto:";
-            List<Player> players = db.Players.ToList();
             foreach (Player p in players)
             {
                 if (p.Active == true)
@@ -90,9 +91,57 @@ namespace GameLogin.Controllers
             return mailingList;
         }
 
+        //gets the emails of all the inactive players
+        private string getAllInactiveEmails(List<Player> players)
+        {
+            string mailingList = "mailto:";
+            foreach (Player p in players)
+            {
+                if (p.Active == false)
+                {
+                    mailingList += p.Email + "; ";
+                }
+
+            }
+            return mailingList;
+        }
+
+        private string getManager(int rosterId)
+        {
+            string leagueName = "";
+            List<Event> events = db.Events.ToList();
+            List<League> leagues = db.Leagues.ToList();
+            foreach (Event e in events)
+            {
+                if (e.RosterId == rosterId)
+                    leagueName = e.LeagueName;
+            }
+
+            foreach (League l in leagues)
+            {
+                if (l.LeagueName.Equals(leagueName))
+                    return "mailto:" + l.Email;
+            }
+
+            return null;
+        }
+
+        //This method is used to find the correct players on the roster
         private List<Player> getPlayers(int rosterId)
         {
-            List<Player> players = db.Players.ToList();
+            List<PlayerRoster> PlayerRosters = db.PlayerRosters.ToList();
+            List<Player> allPlayers = db.Players.ToList();
+            List<Player> players = new List<Player>();
+            foreach(PlayerRoster pr in PlayerRosters){
+                if (pr.RosterId == rosterId)
+                {
+                    foreach (Player p in allPlayers)
+                    {
+                        if (p.Id == pr.PlayerId)
+                            players.Add(p);
+                    }
+                }
+            }
             return players;
         }
     }

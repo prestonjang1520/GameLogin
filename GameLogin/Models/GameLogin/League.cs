@@ -14,6 +14,7 @@ namespace GameLogin.Models.GameLogin
         public int MaxPlayers { get; set; }
         public int PlayerCount { get; set; }
         public string AdminName { get; set; }
+        public String Email { get; set; }
         public virtual ICollection<Admin> Admins { get; set; }
         public virtual ICollection<Event> Events { get; set; }
     }
