@@ -6,7 +6,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{B016569A-2055-45F4-9011-F6706C1519A7}</ProjectGuid>
+    <ProjectGuid>{4514A2A2-4D68-49AC-B234-213D5C9D8DDA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GameLogin.Tests</RootNamespace>
@@ -93,7 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameLogin\GameLogin.csproj">
-      <Project>{D325F974-458E-4398-9F85-2097BE93B592}</Project>
+      <Project>{387DDF71-6632-4C8D-A4CE-974E012A2D2F}</Project>
       <Name>GameLogin</Name>
     </ProjectReference>
   </ItemGroup>

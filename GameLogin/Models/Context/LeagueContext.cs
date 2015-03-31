@@ -17,6 +17,7 @@ namespace GameLogin.Models.Context
         public DbSet<League> Leagues { get; set; }
         public DbSet<Player> Players { get; set; }
         public DbSet<Roster> Rosters { get; set; }
+        public DbSet<PlayerRoster> PlayerRosters { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

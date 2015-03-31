@@ -25,7 +25,6 @@ namespace GameLogin.Controllers
             ViewBag.AllEmails = getAllEmails();
             ViewBag.AllActiveEmails = getAllActiveEmails();
 
-            List<Player> players = db.Players.ToList();
             List<Event> events = db.Events.ToList();
 
             if (pass != null)
@@ -37,7 +36,7 @@ namespace GameLogin.Controllers
             {
                 if (loginPass.Equals(e.EventPassword))
                 {
-
+                    List<Player> players = getPlayers(e.RosterId);
                     return View(new Tuple<List<Player>, Event>(players, e));
                 }
             }
@@ -89,6 +88,12 @@ namespace GameLogin.Controllers
                 
             }
             return mailingList;
+        }
+
+        private List<Player> getPlayers(int rosterId)
+        {
+            List<Player> players = db.Players.ToList();
+            return players;
         }
     }
 }

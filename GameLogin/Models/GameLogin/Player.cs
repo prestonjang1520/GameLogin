@@ -57,6 +57,6 @@ namespace GameLogin.Models
         [Required]
         public bool Active { get; set; }
 
-        public virtual ICollection<Roster> Rosters { get; set; }
+        public virtual ICollection<PlayerRoster> PlayerRoster { get; set; }
     }
 }
