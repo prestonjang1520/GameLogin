@@ -131,6 +131,7 @@
     <div style="margin-top:2000px">
         @using (Html.BeginForm("Home", "Admins"))
         {
+            @Html.Hidden("leagueName", Model.Item2.LeagueName)
             @Html.TextBox("adminpass");
             <input type="submit" value="Admin" />
         }

@@ -37,6 +37,14 @@
             @Html.ValidationMessageFor(model => model.Password)
         </div>
 
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LeagueName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LeagueName)
+            @Html.ValidationMessageFor(model => model.LeagueName)
+        </div>
+
         <p>
             <input type="submit" value="Create" />
         </p>

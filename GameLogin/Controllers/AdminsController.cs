@@ -138,16 +138,28 @@ namespace GameLogin.Controllers
         }
 
         static String userInput;
-        public ActionResult Home(string adminpass)
+        public ActionResult Home(string leagueName, string adminpass)
         {
-            if (adminpass != null)
+            if (adminpass == null)
+                return RedirectToAction("Index", "HomeLogin");
+
+            userInput = adminpass;
+            Admin admin = null;
+            List<Admin> admins = db.Admins.ToList();
+
+            foreach (Admin a in admins)
             {
-                userInput = adminpass;
+                if (userInput.Equals(a.Password))
+                    admin = a;
             }
-            if (userInput.Equals("ticb"))
-                return View();
-            else
-                return RedirectToAction("Index", "HomeLogin");;
+
+            if (admin == null)
+                return RedirectToAction("Index", "HomeLogin");
+
+            if (leagueName.Equals(admin.LeagueName))
+                return View(admin);
+
+            return RedirectToAction("Index", "HomeLogin");
         }
 
         public ActionResult GameDay()
