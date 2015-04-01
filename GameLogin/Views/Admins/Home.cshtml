@@ -1,6 +1,7 @@
 ﻿@model GameLogin.Models.GameLogin.Admin
 @{
     ViewBag.Title = "Home";
+    var expiryDays = @Model.ExpiryDate.Subtract(DateTime.Now).TotalDays;
 }
 
 <div style="width:100%; background-color:#1e1e1e;">
@@ -23,8 +24,8 @@
 
 <div class="jumbotron">
     <h2 style="color:#00a312; text-align:center">Admin</h2>
-    <p class="lead" style="margin-top:30px; color:#FF0000; text-align:center">YOUR ACCOUNT EXPIRES IN __ DAYS</p>
-    <p class="lead" style="color:#FF0000; text-align:center">(05 Mar 12:01 am)</p>
+    <p class="lead" style="margin-top:30px; color:#FF0000; text-align:center">YOUR ACCOUNT EXPIRES IN @expiryDays DAYS</p>
+    <p class="lead" style="color:#FF0000; text-align:center">(@Model.ExpiryDate)</p>
 </div>
 
 <div class="row">

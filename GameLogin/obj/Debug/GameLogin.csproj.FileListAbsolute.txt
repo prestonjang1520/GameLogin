@@ -233,3 +233,4 @@ C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin\obj\Debug\GameLogin.Mi
 C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin\obj\Debug\GameLogin.csproj.GenerateResource.Cache
 C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin\obj\Debug\GameLogin.dll
 C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin\obj\Debug\GameLogin.pdb
+C:\Users\Acer\Documents\Visual Studio 2013\Projects\NoFuckups\GameLogin\GameLogin\obj\Debug\GameLogin.csprojResolveAssemblyReference.cache
