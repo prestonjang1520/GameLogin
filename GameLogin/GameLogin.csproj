@@ -184,6 +184,10 @@
     <Compile Include="Migrations\201503310651360_ThirdMigration.Designer.cs">
       <DependentUpon>201503310651360_ThirdMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201504012115212_FourthMigration.cs" />
+    <Compile Include="Migrations\201504012115212_FourthMigration.Designer.cs">
+      <DependentUpon>201504012115212_FourthMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Context\LeagueContext.cs" />
@@ -337,6 +341,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201503310651360_ThirdMigration.resx">
       <DependentUpon>201503310651360_ThirdMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504012115212_FourthMigration.resx">
+      <DependentUpon>201504012115212_FourthMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

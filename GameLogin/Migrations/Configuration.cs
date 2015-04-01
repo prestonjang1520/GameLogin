@@ -17,6 +17,7 @@ namespace GameLogin.Migrations
 
         protected override void Seed(GameLogin.Models.Context.LeagueContext context)
         {
+            /*
             //data for the leagues
             List<League> leagues = new List<League>(){
                 new League{
@@ -127,7 +128,7 @@ namespace GameLogin.Migrations
 
             players.ForEach(s => context.Players.AddOrUpdate(p => p.Name, s));
             context.SaveChanges();
-
+            */
         }
     }
 }

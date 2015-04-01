@@ -24,7 +24,9 @@ namespace GameLogin.Models.Context
             modelBuilder.Entity<Player>()
                 .Property(f => f.LastGame)
                 .HasColumnType("datetime2");
-            
+            modelBuilder.Entity<Admin>()
+                .Property(f => f.ExpiryDate)
+                .HasColumnType("datetime2");
         }
     }
 }

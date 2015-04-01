@@ -23,6 +23,9 @@
         <th>
             @Html.DisplayNameFor(model => model.LeagueName)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpiryDate)
+        </th>
         <th></th>
     </tr>
 
@@ -39,6 +42,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.LeagueName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExpiryDate)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.AdminId }) |

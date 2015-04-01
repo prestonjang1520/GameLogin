@@ -26,6 +26,7 @@ namespace GameLogin.Models.GameLogin
             ErrorMessage = "The {0} must be between {2} and {1} characters",
             MinimumLength = 8)]
         public String Password { get; set; }
+        public DateTime ExpiryDate { get; set; }
         public String LeagueName { get; set; }
         public League League { get; set; }
     }

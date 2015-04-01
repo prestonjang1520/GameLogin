@@ -47,6 +47,14 @@
             @Html.ValidationMessageFor(model => model.LeagueName)
         </div>
 
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ExpiryDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ExpiryDate)
+            @Html.ValidationMessageFor(model => model.ExpiryDate)
+        </div>
+
         <p>
             <input type="submit" value="Save" />
         </p>

@@ -36,6 +36,13 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.LeagueName)
     </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.ExpiryDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ExpiryDate)
+    </div>
 </fieldset>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.AdminId }) |
