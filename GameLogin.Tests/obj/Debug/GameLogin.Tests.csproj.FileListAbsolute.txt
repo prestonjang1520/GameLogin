@@ -82,3 +82,45 @@ C:\Users\Acer\Documents\Visual Studio 2013\Projects\NoFuckups\GameLogin\GameLogi
 C:\Users\Acer\Documents\Visual Studio 2013\Projects\NoFuckups\GameLogin\GameLogin.Tests\obj\Debug\GameLogin.Tests.csprojResolveAssemblyReference.cache
 C:\Users\Acer\Documents\Visual Studio 2013\Projects\NoFuckups\GameLogin\GameLogin.Tests\obj\Debug\GameLogin.Tests.dll
 C:\Users\Acer\Documents\Visual Studio 2013\Projects\NoFuckups\GameLogin\GameLogin.Tests\obj\Debug\GameLogin.Tests.pdb
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\GameLogin.Tests.dll.config
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\GameLogin.Tests.dll
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\GameLogin.Tests.pdb
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\GameLogin.dll
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\System.Web.Helpers.dll
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\System.Web.Mvc.dll
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\System.Web.Razor.dll
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\System.Web.WebPages.dll
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\EntityFramework.dll
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\System.Web.Optimization.dll
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\Microsoft.Owin.dll
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\Owin.dll
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\Microsoft.Owin.Security.dll
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\GameLogin.pdb
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\Newtonsoft.Json.xml
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\System.Web.Helpers.xml
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\System.Web.Mvc.xml
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\System.Web.Razor.xml
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\System.Web.WebPages.xml
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\EntityFramework.xml
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\System.Web.Optimization.xml
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\Microsoft.Owin.xml
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\Microsoft.Owin.Security.xml
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\obj\Debug\GameLogin.Tests.csprojResolveAssemblyReference.cache
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\obj\Debug\GameLogin.Tests.dll
+C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\obj\Debug\GameLogin.Tests.pdb
