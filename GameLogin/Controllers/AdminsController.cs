@@ -9,10 +9,36 @@ using GameLogin.Models.GameLogin;
 using GameLogin.Models.Context;
 using System.Net.Mail;
 
+
+using Quartz;
+using Quartz.Impl;
+using Quartz.Job;
+using Quartz.Impl.Triggers;
 namespace GameLogin.Controllers
 {
     public class AdminsController : Controller
     {
+        public static string mailTo
+        {
+            get;
+            set;
+        }
+        public static string mailSubject
+        {
+            get;
+            set;
+        }
+        public static string mailBody
+        {
+            get;
+            set;
+        }
+        public static int daysBefore
+        {
+            get;
+            set;
+        }
+
         private LeagueContext db = new LeagueContext();
 
         //
@@ -182,6 +208,7 @@ namespace GameLogin.Controllers
         {
             if (ModelState.IsValid)
             {
+                /*
                 MailMessage mail = new MailMessage();
                 mail.To.Add(_objModelMail.To);
                 //mail.From = new MailAddress(_objModelMail.From);
@@ -197,7 +224,107 @@ namespace GameLogin.Controllers
                 smtp.Credentials = new System.Net.NetworkCredential
                 ("gameloginbcit@gmail.com", "comp3900");// Enter senders User name and password
                 smtp.EnableSsl = true;
-                smtp.Send(mail);
+                smtp.Send(mail);*/
+
+                mailTo = _objModelMail.To;
+                mailSubject = _objModelMail.Subject;
+                mailBody = _objModelMail.Body;
+
+                LeagueContext maildb = new LeagueContext();
+                List<GameLogin.Models.GameLogin.Event> eventdb = maildb.Events.ToList();
+
+                DateTime gameDate = eventdb[0].EventDate;
+                foreach (GameLogin.Models.GameLogin.Event d in eventdb)
+                {
+                    if (gameDate > d.EventDate)
+                    {
+                        gameDate = d.EventDate;
+                    }
+                }
+
+
+                int month = gameDate.Month;
+                //int month = DateTime.Now.Month;
+                int day = gameDate.Day;
+                if (gameDate.Day - _objModelMail.daysBefore < 0)
+                {
+                    month = month - 1;
+
+                    int temp = Math.Abs(gameDate.Day - _objModelMail.daysBefore);
+
+                    if (DateTime.Now.Month == 1)
+                    {
+                        day = 31 - temp;
+                    }
+                    else if (DateTime.Now.Month == 2)
+                    {
+                        day = 28 - temp;
+                        //day = 30;
+                    }
+                    else if (DateTime.Now.Month == 3)
+                    {
+                        day = 31 - temp;
+                        //day = 30;
+                    }
+                    else if (DateTime.Now.Month == 4)
+                    {
+                        day = 30 - temp;
+                    }
+                    else if (DateTime.Now.Month == 5)
+                    {
+                        day = 31 - temp;
+                    }
+                    else if (DateTime.Now.Month == 6)
+                    {
+                        day = 30 - temp;
+                    }
+                    else if (DateTime.Now.Month == 7)
+                    {
+                        day = 31 - temp;
+                    }
+                    else if (DateTime.Now.Month == 8)
+                    {
+                        day = 31 - temp;
+                    }
+                    else if (DateTime.Now.Month == 9)
+                    {
+                        day = 30 - temp;
+                    }
+                    else if (DateTime.Now.Month == 10)
+                    {
+                        day = 31 - temp;
+                    }
+                    else if (DateTime.Now.Month == 11)
+                    {
+                        day = 30 - temp;
+                    }
+                    else
+                    {
+                        day = 31 - temp;
+                    }
+
+                }
+                else
+                {
+                    day = gameDate.Day - _objModelMail.daysBefore;
+                    //day = 30;
+                }
+
+
+
+
+                //hours, minutes, seconds, day, month
+                DateTimeOffset startTime = DateBuilder.DateOf(16, 30, 0, day, month);
+
+
+                ISchedulerFactory schedFact = new StdSchedulerFactory();
+                IScheduler sched = schedFact.GetScheduler();
+                sched.Start();
+                IJobDetail jobDetail = JobBuilder.Create<GameLoginEmailClass>().Build();
+
+                //ITrigger trigger = TriggerBuilder.Create().WithSchedule(CronScheduleBuilder.DailyAtHourAndMinute(0, 28)).Build();
+                ISimpleTrigger trigger2 = (ISimpleTrigger)TriggerBuilder.Create().StartAt(startTime).Build();
+                sched.ScheduleJob(jobDetail, trigger2);
 
                 return View("AutoEmail", _objModelMail);
             }
