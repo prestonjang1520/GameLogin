@@ -36,28 +36,40 @@
 
 <div id="notice_wrapper" style="width:750px; margin:0px auto; clear:both;text-align:center;">
     <div id="notice_temp_notice" style="margin: 5px 0px; padding: 10px 0px; background-color:#d3d3d3;">
-        <p><h3><b>Temporary</b> (removed when roster fills up or is reset)</h3></p>
-        <asp:TextBox ID="notice_text_box_temp" TextMode="MultiLine" runat="server" style="height:300px;width:600px;"></asp:TextBox>
-        <br />
-        <asp:Button ID="notice_btn_temp" runat="server" Text="UPDATE" style="margin:10px 0px 0px 0px" />
+        @using (Html.BeginForm("UpdateNotice", "Admin"))
+        {
+            <p><h3><b>Temporary</b> (removed when roster fills up or is reset)</h3></p>
+            @Html.TextArea("notice_text_box_temp", new { @cols = 80, @rows = 15, @style = "resize:none;" })
+            <br />
+            <input type="submit" value="UPDATE" />
+        }
     </div>
     <div id="notice_perm_top_notice" style="margin: 5px 0px; padding: 10px 0px; background-color:#d3d3d3;" ">
-        <p><h3><b>Permanent top</b> (removed when roster reset)</h3></p>
-        <asp:TextBox ID="notice_text_box_perm_top" TextMode="MultiLine" runat="server" style="height:300px;width:600px;"></asp:TextBox>
-        <br />
-        <asp:Button ID="notice_btn_perm_top" runat="server" Text="UPDATE" style="margin:10px 0px 0px 0px" />
+        @using (Html.BeginForm("UpdateNotice", "Admin"))
+        {
+            <p><h3><b>Permanent top</b> (removed when roster reset)</h3></p>
+            @Html.TextArea("notice_text_box_perm_top", new { @cols = 80, @rows = 15, @style = "resize:none;" })
+            <br />
+            <input type="submit" value="UPDATE" />
+        }
     </div>
     <div id="notice_perm_bot_notice" style="margin: 5px 0px; padding: 10px 0px; background-color:#d3d3d3;" ">
-        <p><h3><b>Permanent bottom</b> (removed when roster reset)</h3></p>
-        <asp:TextBox ID="notice_text_box_perm_bot" TextMode="MultiLine" runat="server" style="height:300px;width:600px;"></asp:TextBox>
-        <br />
-        <asp:Button ID="notice_btn_perm_bot" runat="server" Text="UPDATE" style="margin:10px 0px 0px 0px" />
+        @using (Html.BeginForm("UpdateNotice", "Admin"))
+        {
+            <p><h3><b>Permanent bottom</b> (removed when roster reset)</h3></p>
+            @Html.TextArea("notice_text_box_perm_bot", new { @cols = 80, @rows = 15, @style = "resize:none;" })
+            <br />
+            <input type="submit" value="UPDATE" />
+        }
     </div>
     <div id="notice_end_season_notice" style="margin: 5px 0px; padding: 10px 0px; background-color:#d3d3d3;" ">
-        <p><h3><b>End of Season</b> (Players cannot login once this has been selected)</h3></p>
-        <asp:TextBox ID="notice_text_box_end" TextMode="MultiLine" runat="server" style="height:300px;width:600px;"></asp:TextBox>
-        <br />
-        <asp:Button ID="notice_btn_end" runat="server" Text="UPDATE" style="margin:10px 0px 0px 0px" />
+        @using (Html.BeginForm("UpdateNotice", "Admin"))
+        {
+            <p><h3><b>End of Season</b> (Players cannot login once this has been selected)</h3></p>
+            @Html.TextArea("notice_text_box_end", new { @cols = 80, @rows = 15, @style = "resize:none;" })
+            <br />
+            <input type="submit" value="UPDATE" />
+        }
     </div>
 </div>
 <br />
