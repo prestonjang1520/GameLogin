@@ -18,102 +18,70 @@
         </table>
     </div>
 </div>
-<div>
-    <div style="text-align:center">
+
+<section class="notice_header" style="text-align:center">
+    <div class="notice_content_wrapper">
         <hgroup class="title">
-            <h1 style="color:#000000"><b>System Info</b></h1>
+            <h1 style="color:#000000"><b><%: Title %></b></h1>
+            <h2 style="color:#000000"><b>Notices</b></h2>
         </hgroup>
+        <div id="notice_note" style="margin:0px 0px; text-align:center;">
+            <p style="color:red;">Enter none to remove a specific Notice from your system</p>
+        </div>
+        <br />
+        <br />
     </div>
+</section>
 
-    <div style="width:380px; background-color:#96A5B3; margin-left:auto; margin-right:auto;
-                padding-left: 25px; border:4px double; height:250px">
-        <br />
-        <div>
-            <div style=" width:25%; float:left; padding-left: 25px; ">
-                <label>Admin Email:</label>
-                <label>Team Name:</label>
-                <label>Team Logo:</label>
-            </div>
-            <div style=" width:60%; float:left; padding-left: 25px; ">
-                <input type="text" />
-                <input type="text" />
-                <input type="text" />
-            </div>
-        </div>
-        <div>
-            <div style=" width:25%; float:left; padding-left: 25px; ">
-                <br /><br /><label>Header: </label>
-            </div>
-            <div style=" width:60%; float:left; padding-left: 25px; ">
-                <form style="float:left" action="">
-                    <input type="radio" name="header" value="Team Name Only" />Team Name only<br />
-                    <input type="radio" name="header" value="Team Logo Only" />Team Logo only<br />
-                    <input type="radio" name="header" value="Name Over Logo" />Team Name above logo<br />
-                    <input type="radio" name="header" value="Logo Over Name" />Team Logo above Name<br />
-                    <input type="radio" name="header" value="No Logo or Name" />No Team Logo or Name<br />
-                </form>
-            </div>
-        </div>
-        <br />
-        <br />
-        <br />
-        <div>
-            <div style=" width:25%; float:left; padding-left: 25px; ">
-                <label>Display Next Game Date</label>
-            </div>
-            <div style=" width:60%; float:left; padding-left: 25px; ">
-                <select>
-                    <option value="true">True</option>
-                    <option value="false">False</option>
-                </select>
-                <br /><br />
-                <input type="submit" value="Edit" />
-            </div>
-        </div>
-    </div><br />
-    <div style="width:50%; background-color:#96A5B3; margin-left:auto; margin-right:auto;
-                padding: 20px; text-align:center; border:4px double; height:65px">
-        <div style="float:left; padding-left:30px">
-            <label>New Password: </label><br />
-            <label>New Password Again:</label>
-        </div>
-        <div>
-            <input type="text" /><br />
-            <input type="text" /><br />
+<div id="notice_wrapper" style="width:750px; margin:0px auto; clear:both;text-align:center;">
+    <div id="notice_temp_notice" style="margin: 5px 0px; padding: 10px 0px; background-color:#d3d3d3;">
+        @using (Html.BeginForm("UpdateNotice", "Admin"))
+        {
+            <p><h3><b>Temporary</b> (removed when roster fills up or is reset)</h3></p>
+            @Html.TextArea("notice_text_box_temp", new { @cols = 80, @rows = 15, @style = "resize:none;" })
             <br />
-            <input type="submit" value="Edit" />
-        </div>
-    </div><br />
-
-    <div style="width:400px; margin-left:auto; margin-right:auto; padding-left:40px">
-        <div style="border:4px double; height:50px; float:left; background-color:#96A5B3
-                ;padding:25px">
-            <input type="submit" value="View LOGFILE" />
-        </div>
-        <div style="border:4px double; height:50px; float:left; background-color:#96A5B3
-                ;padding:25px">
-            <input type="submit" value="Delete LOGFILE copy" />
-        </div>
-    </div><br />
-
-    <div style="width:70%; background-color:#96A5B3; margin-left:auto; margin-right:auto; margin-top:100px;
-                padding: 20px; border:4px double; text-align:center">
-        <p style="text-align:initial">
-            If the logged in player count is not in synch with the actual number of players logged in
-            for the next game, this function will bring them back in synch
-        </p>
-        <input type="submit" value="Synchronize Player Count" />
-    </div><br />
-    <div style="width:70%; background-color:#96A5B3; margin-left:auto; margin-right:auto;
-                padding: 20px; border:4px double; text-align:center">
-        <p style="text-align:initial">
-            If the roster is being displayed as 2 teams and you wish to now display all
-            the players on 1 list, this function will move all the players to one team, displayed on one list.
-            There is no undo for this. To go back to 2 teams, simply edit each player's profile and change their team.
-        </p>
-        <input type="submit" value="Move All Players to One List" />
-    </div><br /><br />
-    <div style="width:45%; margin-left:auto; margin-right:auto; text-align:center; margin-bottom:100px">
-        <a href="#" style="text-decoration:underline; font-weight:bold; font-size:large">HELP</a><br />
-    </div><br />
+            <input type="submit" value="UPDATE" />
+        }
+    </div>
+    <div id="notice_perm_top_notice" style="margin: 5px 0px; padding: 10px 0px; background-color:#d3d3d3;" ">
+        @using (Html.BeginForm("UpdateNotice", "Admin"))
+        {
+            <p><h3><b>Permanent top</b> (removed when roster reset)</h3></p>
+            @Html.TextArea("notice_text_box_perm_top", new { @cols = 80, @rows = 15, @style = "resize:none;" })
+            <br />
+            <input type="submit" value="UPDATE" />
+        }
+    </div>
+    <div id="notice_perm_bot_notice" style="margin: 5px 0px; padding: 10px 0px; background-color:#d3d3d3;" ">
+        @using (Html.BeginForm("UpdateNotice", "Admin"))
+        {
+            <p><h3><b>Permanent bottom</b> (removed when roster reset)</h3></p>
+            @Html.TextArea("notice_text_box_perm_bot", new { @cols = 80, @rows = 15, @style = "resize:none;" })
+            <br />
+            <input type="submit" value="UPDATE" />
+        }
+    </div>
+    <div id="notice_end_season_notice" style="margin: 5px 0px; padding: 10px 0px; background-color:#d3d3d3;" ">
+        @using (Html.BeginForm("UpdateNotice", "Admin"))
+        {
+            <p><h3><b>End of Season</b> (Players cannot login once this has been selected)</h3></p>
+            @Html.TextArea("notice_text_box_end", new { @cols = 80, @rows = 15, @style = "resize:none;" })
+            <br />
+            <input type="submit" value="UPDATE" />
+        }
+    </div>
+</div>
+<br />
+<br />
+<div style="clear:both; text-align:center" />
+<h2><a style="text-align:center;" href="temp@gmail.com">HELP</a></h2>
+<br />
+<br />
+<div id="notice_footer" style="width:500px;margin:0 auto;">
+    <div style="width:250px;float:left;">
+        <asp:Button ID="notice_btn_notice" runat="server" Text="GAME STATUS" />
+    </div>
+    <div style="width:250px;float:right;">
+        <asp:Button ID="notice_btn_main" runat="server" Text="ADMIN Main" />
+    </div>
 </div>
