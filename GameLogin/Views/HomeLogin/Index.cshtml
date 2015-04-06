@@ -8,10 +8,10 @@
     string ManagerEmail = ViewBag.ManagerEmail;
     
     DateTime currDate = DateTime.Now;
-    DateTime gameDate = Model.Item2.EventDate;
+    DateTime gameDate = Model.Item2.EventDate; 
     Boolean activeLogin = false; 
     foreach (GameLogin.Models.Player p in Model.Item1) {
-        if (p.Active) {
+        if (p.Regular) {
             activeLogin = true;
             break;
         }
@@ -45,7 +45,7 @@
                         <td>
                             @foreach (GameLogin.Models.Player p in Model.Item1)
                             {
-                                if (p.HomeTeam && p.Active)
+                                if (p.HomeTeam && p.Regular)
                                 {
                                     @Html.DisplayFor(name => p.Name)
                                     <br />
@@ -55,7 +55,7 @@
                         <td>
                             @foreach (GameLogin.Models.Player p in Model.Item1)
                             {
-                                if (!p.HomeTeam && p.Active)
+                                if (!p.HomeTeam && p.Regular)
                                 {
                                     @Html.DisplayFor(name => p.Name)
                                     <br />
@@ -80,7 +80,7 @@
             but now need to remove your name from the Playing list, send an email to your Team Coach/Manager below.<br />
         </p>
         <br /> <br />
-        @using (Html.BeginForm("Index", "Home"))
+        @using (Html.BeginForm("Index", "HomeLogin"))
         {
             @Html.ValidationSummary()
             <table border="1">
@@ -94,7 +94,7 @@
                     <td>
                         @foreach (GameLogin.Models.Player p in Model.Item1)
                         {
-                            if (p.HomeTeam && !p.Active)
+                            if (p.HomeTeam && !p.Regular)
                             {
                                 @Html.RadioButton("Login", @Html.DisplayFor(name => p.Name)) <span>@Html.DisplayFor(name => p.Name)</span>
                                 <br />
@@ -104,7 +104,7 @@
                     <td>
                         @foreach (GameLogin.Models.Player p in Model.Item1)
                         {
-                            if (!p.HomeTeam && !p.Active)
+                            if (!p.HomeTeam && !p.Regular)
                             {
                                 @Html.RadioButton("Login", @Html.DisplayFor(name => p.Name)) <span>@Html.DisplayFor(name => p.Name)</span>
                                 <br />

@@ -11,41 +11,49 @@ namespace GameLogin.Controllers
 {
     public class HomeLoginController : Controller
     {
-
+        static Event eventInstance;
+        private Tuple<List<Player>, Event> dataInstance;
         private LeagueContext db = new LeagueContext();
         //variable to hold the password typed by the user so the user doesn't
         //have to retype it in
-        static String loginPass = "";
-
-        // GET: /HomeLogin/
-        public ActionResult Index(string pass)
+        public ActionResult Index(string Login)
         {
-            List<Event> events = db.Events.ToList();
+            if (eventInstance == null)
+                eventInstance = TempData["eventData"] as Event;
 
-            if (pass != null)
+            if (Login != null )
             {
-                loginPass = pass;
-            }
+                ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
 
-            foreach(Event e in events)
-            {
-                if (loginPass.Equals(e.EventPassword))
+                for (int i = 0;
+                     i < db.Players.ToList().Count;
+                     ++i)
                 {
-                    List<Player> eventPlayers = getPlayers(e.RosterId);
-
-                    //This gets the emails of all the players in a string format
-                    //and puts it into the ViewBag
-                    ViewBag.AllEmails = getAllEmails(eventPlayers);
-                    ViewBag.AllActiveEmails = getAllActiveEmails(eventPlayers);
-                    ViewBag.AllInactiveEmails = getAllInactiveEmails(eventPlayers);
-                    ViewBag.ManagerEmail = getManager(e.RosterId);
-
-                    return View(new Tuple<List<Player>, Event>(eventPlayers, e));
+                    if (db.Players.ToList().ElementAt(i).Name == Login)
+                    {
+                        db.Players.ToList().ElementAt(i).Regular = true;
+                    }
                 }
+
+                db.SaveChanges();
+            }
+            
+            if (dataInstance == null)
+            {
+                List<Player> eventPlayers = getPlayers(eventInstance.RosterId);
+                dataInstance = new Tuple<List<Player>, Event>(eventPlayers, eventInstance);
+
+                //This gets the emails of all the players in a string format
+                //and puts it into the ViewBag
+                ViewBag.AllEmails = getAllEmails(eventPlayers);
+                ViewBag.AllActiveEmails = getAllActiveEmails(eventPlayers);
+                ViewBag.AllInactiveEmails = getAllInactiveEmails(eventPlayers);
+                ViewBag.ManagerEmail = getManager(eventInstance.RosterId);
             }
 
-            return RedirectToAction("Index", "Home");
-        }
+
+            return View(dataInstance);
+        } 
         
         /*
         public ActionResult Index(string Login)
@@ -86,7 +94,7 @@ namespace GameLogin.Controllers
                 {
                     mailingList += p.Email + "; ";
                 }
-                
+
             }
             return mailingList;
         }
@@ -132,7 +140,8 @@ namespace GameLogin.Controllers
             List<PlayerRoster> PlayerRosters = db.PlayerRosters.ToList();
             List<Player> allPlayers = db.Players.ToList();
             List<Player> players = new List<Player>();
-            foreach(PlayerRoster pr in PlayerRosters){
+            foreach (PlayerRoster pr in PlayerRosters)
+            {
                 if (pr.RosterId == rosterId)
                 {
                     foreach (Player p in allPlayers)

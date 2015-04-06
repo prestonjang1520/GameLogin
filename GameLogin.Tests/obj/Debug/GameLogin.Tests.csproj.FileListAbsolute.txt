@@ -124,3 +124,5 @@ C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\bin\Debug\Micros
 C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\obj\Debug\GameLogin.Tests.csprojResolveAssemblyReference.cache
 C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\obj\Debug\GameLogin.Tests.dll
 C:\Users\prestonjang\Documents\GitHub\GameLogin\GameLogin.Tests\obj\Debug\GameLogin.Tests.pdb
+C:\Users\Andrew\Desktop\SuperGameLogin.com\tes git\GameLogin\GameLogin.Tests\obj\Debug\GameLogin.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Andrew\Desktop\SuperGameLogin.com\tes git\GameLogin\GameLogin.Tests\obj\Debug\GameLogin.Tests.dll
