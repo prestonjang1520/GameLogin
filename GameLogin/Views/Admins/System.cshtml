@@ -20,74 +20,82 @@
     </div>
 </div>
 
+
 <div>
-    <div style="width:100%; text-align:center; font-weight:bold; font-size:large">
-        <asp:Label ID="lblAdmin" runat="server" ForeColor="Lime" Text="Admin"></asp:Label>
-        <br />
-        <asp:Label ID="lblSystemInfo" runat="server" Text="System Info"></asp:Label>
-        <br />
-    </div><br />
+    <div style="text-align:center">
+        <hgroup class="title">
+            <h1 style="color:#000000"><b>System Info</b></h1>
+        </hgroup>
+    </div>
 
-    <div style="width:410px; background-color:#96A5B3; margin-left:auto; margin-right:auto; text-align:center;
-                padding: 25px; border:4px double;">
-
-        <asp:Label ID="lblAdminEmail" runat="server" Text="Admin Email:"></asp:Label>
-        &nbsp;&nbsp;<asp:TextBox ID="tbAdminEmail" runat="server" Width="250px"></asp:TextBox>
+    <div style="width:380px; background-color:#96A5B3; margin-left:auto; margin-right:auto;
+                padding-left: 25px; border:4px double; height:250px">
         <br />
-        <asp:Label ID="lblTeamName" runat="server" Text="Team Name: "></asp:Label>
-        &nbsp;
-        <asp:TextBox ID="tbTeamName" runat="server" Width="250px"></asp:TextBox>
-        <br />
-        <asp:Label ID="lblTeamLogo" runat="server" Text="Team Logo:"></asp:Label>
-        &nbsp;&nbsp;
-        <asp:TextBox ID="tbTeamLogo" runat="server" Width="250px"></asp:TextBox>
-
-        <br />
-        <asp:Label ID="lblHeader" runat="server" Text="Header:" style="float:left; margin-top: 60px; margin-right:40px"></asp:Label>
-        <asp:RadioButtonList ID="RadioButtonList1" runat="server" style="float:left; text-align:initial" RepeatLayout="Flow">
-            <asp:listitem>Team Name only</asp:listitem>
-            <asp:listitem>Team Logo only</asp:listitem>
-            <asp:listitem>Team Name above Logo</asp:listitem>
-            <asp:listitem>Team Logo above Name</asp:listitem>
-            <asp:listitem>No Team Logo or Name</asp:listitem>
-        </asp:RadioButtonList>
-        <br /><br /><br /><br /><br /><br /><br /><br />
-
-        <asp:Label ID="Label1" runat="server" Text="Display Next:" style="float:left"></asp:Label>
-        &nbsp;
-        <asp:DropDownList ID="DropDownList1" runat="server">
-            <asp:listitem>True</asp:listitem>
-            <asp:listitem>False</asp:listitem>
-        </asp:DropDownList>
-        <br />
-        <br />
-        <asp:Button ID="btnAdminDetailsEdit" runat="server" Text="Edit" />
-
-    </div><br />
-
-    <div style="width:350px; background-color:#96A5B3; text-align:center; margin-left:auto; margin-right:auto;
-                padding: 20px; border:4px double;">
-
-        <asp:Label ID="lblPassword" runat="server" Text="New Password:"></asp:Label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="TextBox1" runat="server" Width="140px"></asp:TextBox>
-        <br />
-        <asp:Label ID="Label2" runat="server" Text="Re-enter Password:"></asp:Label>
-        &nbsp;<asp:TextBox ID="TextBox2" runat="server" Width="140px"></asp:TextBox>
-        <br />
-        <br />
-        <asp:Button ID="btnPasswordEdit" runat="server" Text="Edit" />
-
-    </div><br />
-
-    <div style="width:60%; margin-left:auto; margin-right:auto; padding-left:100px">
-        <div style="width:35%; height:100px; background-color:#96A5B3; float:left;
-                    padding: 20px; border:4px double; border-right:0">
-            <asp:Button ID="Button1" runat="server" Text="View LOGFILE" />
+        <div>
+            <div style=" width:25%; float:left; padding-left: 25px; ">
+                <label>Admin Email:</label>
+                <label>Team Name:</label>
+                <label>Team Logo:</label>
+            </div>
+            <div style=" width:60%; float:left; padding-left: 25px; ">
+                <input type="text" />
+                <input type="text" />
+                <input type="text" />
+            </div>
         </div>
-        <div style="width:45%; height:100px; background-color:#96A5B3; float:left;
-                    padding: 20px; border:4px double">
-            <asp:Button ID="Button2" runat="server" Text="Delete LOGFILE copy" />
+        <div>
+            <div style=" width:25%; float:left; padding-left: 25px; ">
+                <br /><br /><label>Header: </label>
+            </div>
+            <div style=" width:60%; float:left; padding-left: 25px; ">
+                <form style="float:left" action="">
+                    <input type="radio" name="header" value="Team Name Only" />Team Name only<br />
+                    <input type="radio" name="header" value="Team Logo Only" />Team Logo only<br />
+                    <input type="radio" name="header" value="Name Over Logo" />Team Name above logo<br />
+                    <input type="radio" name="header" value="Logo Over Name" />Team Logo above Name<br />
+                    <input type="radio" name="header" value="No Logo or Name" />No Team Logo or Name<br />
+                </form>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <div>
+            <div style=" width:25%; float:left; padding-left: 25px; ">
+                <label>Display Next Game Date</label>
+            </div>
+            <div style=" width:60%; float:left; padding-left: 25px; ">
+                <select>
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                </select>
+                <br /><br />
+                <input type="submit" value="Edit" />
+            </div>
+        </div>
+    </div><br />
+    <div style="width:50%; background-color:#96A5B3; margin-left:auto; margin-right:auto;
+                padding: 20px; text-align:center; border:4px double; height:65px">
+        <div style="float:left; padding-left:30px">
+            <label>New Password: </label><br />
+            <label>New Password Again:</label>
+        </div>
+        <div>
+            <input type="text" /><br />
+            <input type="text" /><br />
+            <br />
+            <input type="submit" value="Edit" />
+        </div>
+    </div><br />
+
+    <div style="width:400px; margin-left:auto; margin-right:auto; padding-left:40px">
+        <div style="border:4px double; height:50px; float:left; background-color:#96A5B3
+                ;padding:25px">
+            <input type="submit" value="View LOGFILE" />
+        </div>
+        <div style="border:4px double; height:50px; float:left; background-color:#96A5B3
+                ;padding:25px">
+            <input type="submit" value="Delete LOGFILE copy" />
         </div>
     </div><br />
 
@@ -97,9 +105,8 @@
             If the logged in player count is not in synch with the actual number of players logged in
             for the next game, this function will bring them back in synch
         </p>
-        <asp:Button ID="Button3" runat="server" Text="Synchronize Player Count" />
+        <input type="submit" value="Synchronize Player Count" />
     </div><br />
-
     <div style="width:70%; background-color:#96A5B3; margin-left:auto; margin-right:auto;
                 padding: 20px; border:4px double; text-align:center">
         <p style="text-align:initial">
@@ -107,16 +114,9 @@
             the players on 1 list, this function will move all the players to one team, displayed on one list.
             There is no undo for this. To go back to 2 teams, simply edit each player's profile and change their team.
         </p>
-        <asp:Button ID="Button4" runat="server" Text="Move All Players to One List" />
+        <input type="submit" value="Move All Players to One List" />
     </div><br /><br />
-
     <div style="width:45%; margin-left:auto; margin-right:auto; text-align:center; margin-bottom:100px">
         <a href="#" style="text-decoration:underline; font-weight:bold; font-size:large">HELP</a><br />
-        <div style="float:left; padding:20px; border:3px solid blue; margin-top:40px">
-            <asp:Button ID="Button5" runat="server" Text="Game Status" />
-        </div>
-        <div style="float:left; padding:20px; border:3px solid green; margin-left:20px; margin-top:40px">
-            <asp:Button ID="Button6" runat="server" Text="ADMIN Main" />
-        </div>
     </div><br />
 </div>
