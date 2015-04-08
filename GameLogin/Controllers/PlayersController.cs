@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using GameLogin.Models;
 using GameLogin.Models.Context;
+using GameLogin.Models.GameLogin;
 
 namespace GameLogin.Controllers
 {
@@ -48,11 +49,33 @@ namespace GameLogin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Player player)
+        public ActionResult Create(Player player, string rosterName)
         {
             if (ModelState.IsValid)
             {
                 db.Players.Add(player);
+
+                List<Roster> rosters = db.Rosters.ToList();
+                foreach (Roster r in rosters)
+                {
+                    if (r.RosterName.Equals(rosterName))
+                    {
+                        db.PlayerRosters.Add(new PlayerRoster
+                        {
+                            PlayerId = player.Id,
+                            RosterId = r.RosterId
+                        });
+                        break;
+                    }
+                }
+
+                /*foreach(Roster r in db.Rosters){
+                    db.PlayerRosters.Add(new PlayerRoster{
+                        PlayerId = player.Id,
+                        RosterId = r.RosterId
+                    });
+                }*/
+                
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
