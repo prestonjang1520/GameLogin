@@ -33,6 +33,7 @@ namespace GameLogin.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult Index(GameLogin.Models.MailModel _objModelMail)
         {
@@ -61,25 +62,6 @@ namespace GameLogin.Controllers
                 return View();
             }
         }
-        /*
-        public static void SendEmail(MailAddress fromAddress, MailAddress toAddress, string subject, string body)
-        {
-            var message = new MailMessage(fromAddress, toAddress)
-            {
-                Subject = subject,
-                Body = body
-            };
-
-            var client = new SmtpClient("gameLoginServer");
-            //new UserMailer().Welcome().Send();
-            client.Send(message);
-        }*/
-
-        //
-        // POST: /AutoEmail/Create
-
-      
-        //
      
     }
 }

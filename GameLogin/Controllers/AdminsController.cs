@@ -18,26 +18,12 @@ namespace GameLogin.Controllers
 {
     public class AdminsController : Controller
     {
-        public static string mailTo
-        {
-            get;
-            set;
-        }
-        public static string mailSubject
-        {
-            get;
-            set;
-        }
-        public static string mailBody
-        {
-            get;
-            set;
-        }
-        public static int daysBefore
-        {
-            get;
-            set;
-        }
+        static String userInput;
+
+        public static string mailTo { get; set; }
+        public static string mailSubject { get; set; }
+        public static string mailBody  { get; set; }
+        public static int daysBefore { get; set; }
 
         private LeagueContext db = new LeagueContext();
 
@@ -148,22 +134,43 @@ namespace GameLogin.Controllers
             base.Dispose(disposing);
         }
 
+        /*
+         * Method used to get the Notices page
+         * 
+         * Returns: the Notices page
+         * */
         public ActionResult Notices()
         {
             return View();
         }
 
+        /*
+         * Method used to get the Roster page
+         * 
+         * Returns: the Roster page
+         * */
         public ActionResult Roster()
         {
             return View();
         }
 
+        /*
+         * Method used to get the Reset page
+         * 
+         * Returns: the Reset page
+         * */
         public ActionResult Reset()
         {
             return View();
         }
 
-        static String userInput;
+        /*
+         * method used to get the Admin home page. Function will check the user input to the league 
+         * name and its admin password. If correct, the browser will be directed to the proper league
+         * admin page. If incorrect, will simply go back to the league home page.
+         * 
+         * Returns: Page depending on if password is correct 
+         * */
         public ActionResult Home(string leagueName, string adminpass)
         {
             if (adminpass == null)
@@ -188,21 +195,39 @@ namespace GameLogin.Controllers
             return RedirectToAction("Index", "HomeLogin");
         }
 
+        /*
+         * Method used to get the Game Day page
+         * 
+         * Returns: the Game Day page
+         * */
         public ActionResult GameDay()
         {
             return View();
         }
 
+        /*
+         * Method used to get the System page
+         * 
+         * Returns: the System page
+         * */
         public ActionResult System()
         {
             return View();
         }
 
+        /*
+         * Method used to get the Auto Email page
+         * 
+         * Returns: the Auto Email page
+         * */
         public ActionResult AutoEmail()
         {
             return View();
         }
 
+        /*
+         * Method to send emails to all subscribers
+         * */
         [HttpPost]
         public ActionResult SendEmail(GameLogin.Models.MailModel _objModelMail)
         {
