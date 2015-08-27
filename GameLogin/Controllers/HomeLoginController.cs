@@ -14,8 +14,8 @@ namespace GameLogin.Controllers
         static Event eventInstance;
         private Tuple<List<Player>, Event> dataInstance;
         private LeagueContext db = new LeagueContext();
-        //variable to hold the password typed by the user so the user doesn't
-        //have to retype it in
+        
+        //admin pw to game1 is adminjohn
         public ActionResult Index(string Login)
         {
             if (eventInstance == null)
@@ -25,9 +25,7 @@ namespace GameLogin.Controllers
             {
                 ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
 
-                for (int i = 0;
-                     i < db.Players.ToList().Count;
-                     ++i)
+                for (int i = 0; i < db.Players.ToList().Count; ++i)
                 {
                     if (db.Players.ToList().ElementAt(i).Name == Login)
                     {
@@ -53,27 +51,9 @@ namespace GameLogin.Controllers
 
 
             return View(dataInstance);
-        } 
-        
-        /*
-        public ActionResult Index(string Login)
-        {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+        }
 
-            for (int i = 0;
-                 i < db.Players.ToList().Count;
-                 ++i)
-            {
-                if (db.Players.ToList().ElementAt(i).Name == Login)
-                {
-                    db.Players.ToList().ElementAt(i).Active = true;
-                }
-            }
-
-            db.SaveChanges();
-            return View();
-        }*/
-
+        //returns a string with all the emails of all the players provided, separated by a ;
         private string getAllEmails(List<Player> players)
         {
             string mailingList = "mailto:";
@@ -114,6 +94,7 @@ namespace GameLogin.Controllers
             return mailingList;
         }
 
+        //get the manager of a particular roster
         private string getManager(int rosterId)
         {
             string leagueName = "";

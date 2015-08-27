@@ -13,11 +13,12 @@ namespace GameLogin.Controllers
     {
 
         private LeagueContext db = new LeagueContext();
+
         //variable to hold the password typed by the user so the user doesn't
         //have to retype it in
         static String loginPass = "";
 
-        // GET: /HomeLogin/
+        // GET: /HomeLogin page/
         public ActionResult Index(string pass)
         {
             List<Event> events = db.Events.ToList();
@@ -40,16 +41,15 @@ namespace GameLogin.Controllers
                     ViewBag.AllInactiveEmails = getAllInactiveEmails(eventPlayers);
                     ViewBag.ManagerEmail = getManager(e.RosterId);
 
-                    TempData["eventData"] = e;// new Tuple<List<Player>, Event>(eventPlayers, e);
+                    TempData["eventData"] = e;
                     return RedirectToAction("Index", "HomeLogin");
-                    //return View()
-                    //return RedirectToAction("Index", "HomeLogin", new{ Model = new Tuple<List<Player>, Event>(eventPlayers, e)});
                 }
             }
 
-            return View();//RedirectToAction("Index", "Home");
+            return View();
         }
 
+        //returns the About page
         public ActionResult About()
         {
             ViewBag.Message = "Your app description page.";
@@ -57,12 +57,15 @@ namespace GameLogin.Controllers
             return View();
         }
 
+        //returns the Contact page
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
 
             return View();
         }
+
+        //returns a string with all the emails of all the players provided, separated by a ;
         private string getAllEmails(List<Player> players)
         {
             string mailingList = "mailto:";
@@ -103,6 +106,7 @@ namespace GameLogin.Controllers
             return mailingList;
         }
 
+        //get the manager of a particular roster
         private string getManager(int rosterId)
         {
             string leagueName = "";
